@@ -12,7 +12,7 @@ git clone --bare "https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_RE
 git remote add --mirror=fetch mirror "${REMOTE}" || exit 1
 git fetch mirror +refs/heads/*:refs/remotes/origin/* || exit 1
 
-if [-z "${TARGET_REFSPACE}"]; then
+if [ -n "${TARGET_REFSPACE}" ]; then
   git push --force --mirror --prune origin "${TARGET_REFSPACE}" || exit 1
 else
   git push --force --mirror --prune origin || exit 1
