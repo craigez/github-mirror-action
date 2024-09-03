@@ -10,6 +10,8 @@ inputs:
   GITHUB_TOKEN:
     description: 'set this to the value of secrets.GITHUB_TOKEN'
     required: true
+  TARGET_REFSPACE:
+    description: "If set optionally mirror into alternate refspace"
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -17,3 +19,4 @@ runs:
     - ${{ inputs.origin }}
   env:
     GITHUB_TOKEN: ${{ inputs.GITHUB_TOKEN }}
+    TARGET_REFSPACE: ${{ inputs.TARGET_REFSPACE }}
