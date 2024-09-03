@@ -13,7 +13,7 @@ git remote add --mirror=fetch mirror "${REMOTE}" || exit 1
 git fetch mirror +refs/heads/*:refs/remotes/origin/* || exit 1
 
 if [ -n "${TARGET_REFSPACE}" ]; then
-  git push --force --mirror --prune origin "${TARGET_REFSPACE}" || exit 1
+  git push --force --prune origin "${TARGET_REFSPACE}" || exit 1
 else
   git push --force --mirror --prune origin || exit 1
 fi
